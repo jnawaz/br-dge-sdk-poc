@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum WebServiceError: Error, Equatable {
+public enum WebServiceError: Error, Equatable {
 
     /// There was no network connection
     case noInternetError
