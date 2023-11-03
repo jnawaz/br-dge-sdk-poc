@@ -8,18 +8,18 @@
 import Foundation
 
 public class PaymentInstrumentsSingleUseToken: WebServiceConfiguration {
-    typealias Response = SingleUseTokenResponse
+    public typealias Response = SingleUseTokenResponse
     
-    var baseUrl: URL = URL(string: apiBaseUrl)!
-    var pathComponents: [String] = [
+    public var baseUrl: URL = URL(string: apiBaseUrl)!
+    public var pathComponents: [String] = [
         "v1/payment-instruments/single-use"
     ]
-    var additionalHeaders: [String : String]?
-    var method: HTTPMethod = .post
-    var httpBody: Data?
+    public var additionalHeaders: [String : String]?
+    public var method: HTTPMethod = .post
+    public var httpBody: Data?
 }
 
-struct SingleUseTokenResponse: Codable {
+public struct SingleUseTokenResponse: Codable {
     let token: String?
     let id: String?
     let tokenType: String?

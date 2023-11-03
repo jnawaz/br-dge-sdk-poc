@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol NetworkSession {
+public protocol NetworkSession {
     func loadData(from request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
 
@@ -19,14 +19,14 @@ extension URLSession: NetworkSession {
     }
 }
 
-internal class NetworkManager {
-    internal let session: NetworkSession
+public class NetworkManager {
+    public let session: NetworkSession
     
-    internal init(session: NetworkSession = URLSession.shared) {
+    public init(session: NetworkSession = URLSession.shared) {
         self.session = session
     }
     
-    internal func request(_ request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    public func request(_ request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         session.loadData(from: request, completionHandler: completion)
     }
 }

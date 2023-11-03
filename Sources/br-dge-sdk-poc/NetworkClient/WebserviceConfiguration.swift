@@ -7,12 +7,12 @@
 
 import Foundation
 
-internal enum WebServiceResult<R> {
+public enum WebServiceResult<R> {
     case success(R)
     case failure(Error)
 }
 
-internal enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
@@ -20,12 +20,12 @@ internal enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-internal enum ContentType: String {
+public enum ContentType: String {
     case json = "application/json"
     case multipartForm = "multipart/form-data"
 }
 
-internal protocol WebServiceConfiguration {
+public protocol WebServiceConfiguration {
     associatedtype Response: Decodable
 
     var baseUrl: URL { get set }
@@ -38,7 +38,7 @@ internal protocol WebServiceConfiguration {
 }
 
 extension WebServiceConfiguration {
-    var networkManager: NetworkManager {
+    public var networkManager: NetworkManager {
         return NetworkManager()
     }
 }
@@ -47,7 +47,7 @@ extension WebServiceConfiguration {
  extension WebServiceConfiguration {
     var baseUrl: URL { return URL(string: "")! }
     var method: HTTPMethod { .get }
-    var queryParameters: [URLQueryItem]? { return nil }
+    public var queryParameters: [URLQueryItem]? { return nil }
      var additionalHeaders: [String: String]? { return nil }
 
     var decoder: JSONDecoder {
@@ -65,7 +65,7 @@ extension WebServiceConfiguration {
 
 // MARK: Request Execution
 extension WebServiceConfiguration {
-    internal func start(completion: @escaping (WebServiceResult<Response>) -> Void) {
+    public func start(completion: @escaping (WebServiceResult<Response>) -> Void) {
 
         let request = createRequest()
 
