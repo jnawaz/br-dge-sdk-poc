@@ -20,17 +20,17 @@ public class PaymentInstrumentsSingleUseToken: WebServiceConfiguration {
 }
 
 public struct SingleUseTokenResponse: Codable {
-    let token: String?
-    let id: String?
-    let tokenType: String?
-    let metadata: [String: String?]?
-    let nameOnCard: String?
-    let pan: String?
-    let expiryDate: String?
-    let startDate: String?
-    let issueNumber: String?
-    let customerId: String?
-    let cardType: String?
-    let fingerprint: String?
+    public let token: String?
+    public let id: String?
+    public let tokenType: String?
+    public let metadata: [String: String?]?
+    public let nameOnCard: String?
+    public let pan: String?
+    public let expiryDate: String?
+    public let startDate: String?
+    public let issueNumber: String?
+    public let customerId: String?
+    public let cardType: String?
+    public let fingerprint: String?
     
 }
