@@ -17,6 +17,11 @@ public class PaymentInstrumentsSingleUseToken: WebServiceConfiguration {
     public var additionalHeaders: [String : String]?
     public var method: HTTPMethod = .post
     public var httpBody: Data?
+    
+    public init(additionalHeaders: [String : String]? = nil, httpBody: Data? = nil) {
+        self.additionalHeaders = additionalHeaders
+        self.httpBody = httpBody
+    }
 }
 
 public struct SingleUseTokenResponse: Codable {

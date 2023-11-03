@@ -38,7 +38,7 @@ public protocol WebServiceConfiguration {
 }
 
 extension WebServiceConfiguration {
-    var networkManager: NetworkManager {
+    public var networkManager: NetworkManager {
         return NetworkManager()
     }
 }
@@ -47,7 +47,7 @@ extension WebServiceConfiguration {
  extension WebServiceConfiguration {
     var baseUrl: URL { return URL(string: "")! }
     var method: HTTPMethod { .get }
-    var queryParameters: [URLQueryItem]? { return nil }
+    public var queryParameters: [URLQueryItem]? { return nil }
      var additionalHeaders: [String: String]? { return nil }
 
     var decoder: JSONDecoder {
