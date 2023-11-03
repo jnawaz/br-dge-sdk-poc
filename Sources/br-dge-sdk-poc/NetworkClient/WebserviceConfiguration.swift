@@ -34,11 +34,11 @@ public protocol WebServiceConfiguration {
     var queryParameters: [URLQueryItem]? { get }
     var networkManager: NetworkManager { get }
     var additionalHeaders: [String: String]? { get }
-    var httpBody: Data? { get set }
+    var requestBody: Data? { get set }
 }
 
-extension WebServiceConfiguration {
-    public var networkManager: NetworkManager {
+public extension WebServiceConfiguration {
+    var networkManager: NetworkManager {
         return NetworkManager()
     }
 }
@@ -105,8 +105,8 @@ extension WebServiceConfiguration {
             })
         }
         
-        if let requestBody = httpBody {
-            urlRequest.httpBody = requestBody
+        if let httpRequestBody = requestBody {
+            urlRequest.httpBody = httpRequestBody
         }
 
         return urlRequest
