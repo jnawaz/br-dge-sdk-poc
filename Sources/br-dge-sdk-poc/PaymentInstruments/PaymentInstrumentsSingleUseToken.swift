@@ -15,7 +15,8 @@ public class PaymentInstrumentsSingleUseToken: WebServiceConfiguration {
         "v1/payment-instruments/single-use"
     ]
     var additionalHeaders: [String : String]?
-
+    var method: HTTPMethod = .post
+    var httpBody: Data?
 }
 
 struct SingleUseTokenResponse: Codable {

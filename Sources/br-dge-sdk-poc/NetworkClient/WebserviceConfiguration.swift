@@ -34,6 +34,7 @@ internal protocol WebServiceConfiguration {
     var queryParameters: [URLQueryItem]? { get }
     var networkManager: NetworkManager { get }
     var additionalHeaders: [String: String]? { get }
+    var httpBody: Data? { get set }
 }
 
 extension WebServiceConfiguration {
@@ -102,6 +103,10 @@ extension WebServiceConfiguration {
             requestHeaders.forEach({ (httpHeader: String, value: String) in
                 urlRequest.addValue(value, forHTTPHeaderField: httpHeader)
             })
+        }
+        
+        if let requestBody = httpBody {
+            urlRequest.httpBody = requestBody
         }
 
         return urlRequest
