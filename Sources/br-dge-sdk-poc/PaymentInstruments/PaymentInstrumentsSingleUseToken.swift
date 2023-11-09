@@ -17,6 +17,7 @@ public class PaymentInstrumentsSingleUseToken: WebServiceConfiguration {
     public var additionalHeaders: [String : String]?
     public var method: HTTPMethod = .post
     public var requestBody: Data?
+    public var contentType: ContentType = .json
     
     public init(additionalHeaders: [String : String]? = nil, requestBody: Data? = nil) {
         self.additionalHeaders = additionalHeaders

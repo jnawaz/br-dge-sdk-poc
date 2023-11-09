@@ -35,6 +35,7 @@ public protocol WebServiceConfiguration {
     var networkManager: NetworkManager { get }
     var additionalHeaders: [String: String]? { get }
     var requestBody: Data? { get set }
+    var contentType: ContentType { get }
 }
 
 public extension WebServiceConfiguration {
@@ -98,6 +99,7 @@ extension WebServiceConfiguration {
         //create request
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue
+        urlRequest.addValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
 
         if let requestHeaders = additionalHeaders {
             requestHeaders.forEach({ (httpHeader: String, value: String) in
